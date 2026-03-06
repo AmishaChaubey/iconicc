@@ -1,8 +1,18 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-const goldColor = '#D0AB69';
-const darkCharcoal = '#1a1a1a';
+const COLORS = {
+  gold: '#D4AF37',
+  darkCharcoal: '#0a0a0a',
+  lightGold: 'rgba(212, 175, 55, 0.15)',
+  cream: '#faf7f2',
+};
+
+const FONTS = {
+  display: '"Bodoni Moda", serif',
+  accent: '"Montserrat", sans-serif',
+  body: '"Cormorant Garamond", serif',
+};
 
 export default function HighlightsSection() {
   const features = [
@@ -21,50 +31,60 @@ export default function HighlightsSection() {
   ];
 
   return (
-    <section id="highlights" className="relative py-12 md:py-20 px-4 md:px-6 overflow-hidden">
+    <section id="highlights" className="relative py-10 md:py-14 px-4 md:px-6 overflow-hidden" style={{ backgroundColor: COLORS.cream }}>
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-amber-50 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-amber-50 rounded-full blur-3xl opacity-10" />
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-block mb-3 md:mb-4">
+        <div className="text-center mb-8 md:mb-10">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <div 
+              className="w-4 h-px"
+              style={{ backgroundColor: COLORS.gold }}
+            />
             <span 
-              className="text-xs md:text-sm font-semibold tracking-widest text-amber-700 uppercase"
+              className="text-xs tracking-widest uppercase font-light"
               style={{
-                fontFamily: '"Lora", sans-serif',
-                letterSpacing: '0.15em'
+                fontFamily: FONTS.accent,
+                color: COLORS.gold,
+                letterSpacing: '0.2em'
               }}
             >
               Premium Features
             </span>
+            <div 
+              className="w-4 h-px"
+              style={{ backgroundColor: COLORS.gold }}
+            />
           </div>
 
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-light mb-3 md:mb-4 leading-tight"
             style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal,
-              letterSpacing: '-0.02em'
+              fontFamily: FONTS.display,
+              color: COLORS.darkCharcoal,
+              letterSpacing: '-0.03em'
             }}
           >
-            Residences Designed for <span style={{ color: goldColor }}>Grandeur</span>
+            Residences Designed for <span style={{ color: COLORS.gold }}>Grandeur</span>
           </h2>
 
           <p 
-            className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-4"
-            style={{ fontFamily: '"Lora", sans-serif' }}
+            className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-4 font-light"
+            style={{ fontFamily: FONTS.body }}
           >
             Natural light. Cross ventilation. Unmatched openness.
           </p>
 
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-3 mt-4 md:mt-6">
-            <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
-            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: goldColor }} />
-            <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
+            <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
+            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: COLORS.gold }} />
+            <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
           </div>
         </div>
 
@@ -73,20 +93,20 @@ export default function HighlightsSection() {
           {features.map((feature, idx) => (
             <div 
               key={idx}
-              className="flex items-start gap-3 p-3 md:p-4 rounded-xl transition-all duration-300"
+              className="flex items-start gap-3 p-3 md:p-4 rounded-lg transition-all duration-300 hover:shadow-md group"
               style={{
-                backgroundColor: `${goldColor}08`,
-                border: `1px solid ${goldColor}30`,
+                backgroundColor: 'white',
+                border: `1px solid ${COLORS.lightGold}`,
               }}
             >
               <Check 
                 size={18} 
-                className="flex-shrink-0 mt-0.5" 
-                style={{ color: goldColor }}
+                className="flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" 
+                style={{ color: COLORS.gold }}
               />
               <p 
-                className="text-xs md:text-sm font-semibold text-gray-800 leading-snug"
-                style={{ fontFamily: '"Lora", sans-serif' }}
+                className="text-xs md:text-sm font-light text-gray-800 leading-snug"
+                style={{ fontFamily: FONTS.body }}
               >
                 {feature}
               </p>
@@ -96,17 +116,18 @@ export default function HighlightsSection() {
 
         {/* Highlight Box */}
         <div 
-          className="mt-8 md:mt-10 p-5 md:p-6 rounded-2xl text-center"
+          className="mt-8 md:mt-10 p-5 md:p-6 rounded-lg text-center transition-all duration-300 hover:shadow-lg"
           style={{
-            backgroundColor: `${goldColor}15`,
-            border: `2px solid ${goldColor}40`
+            backgroundColor: 'white',
+            border: `1px solid ${COLORS.lightGold}`
           }}
         >
           <p 
-            className="text-base md:text-lg font-black text-gray-900"
+            className="text-base md:text-lg font-light text-gray-900"
             style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal
+              fontFamily: FONTS.display,
+              color: COLORS.darkCharcoal,
+              letterSpacing: '-0.01em'
             }}
           >
             Every Detail Crafted for Excellence
@@ -115,7 +136,7 @@ export default function HighlightsSection() {
       </div>
 
       <style jsx>{`
-        @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
       `}</style>
     </section>
   );

@@ -1,7 +1,16 @@
 import React from 'react';
 
-const goldColor = '#D0AB69';
-const darkCharcoal = '#1a1a1a';
+const COLORS = {
+  gold: '#D4AF37',
+  darkCharcoal: '#0a0a0a',
+  lightGold: 'rgba(212, 175, 55, 0.15)',
+};
+
+const FONTS = {
+  display: '"Bodoni Moda", serif',
+  accent: '"Montserrat", sans-serif',
+  body: '"Cormorant Garamond", serif',
+};
 
 export default function AmenitiesSection() {
   const amenities = [
@@ -34,7 +43,7 @@ export default function AmenitiesSection() {
             <span 
               className="text-xs md:text-sm font-semibold tracking-widest text-amber-700 uppercase"
               style={{
-                fontFamily: '"Lora", sans-serif',
+                fontFamily: FONTS.accent,
                 letterSpacing: '0.15em'
               }}
             >
@@ -43,28 +52,28 @@ export default function AmenitiesSection() {
           </div>
 
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-light mb-3 md:mb-4 leading-tight"
             style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal,
+              fontFamily: FONTS.display,
+              color: COLORS.darkCharcoal,
               letterSpacing: '-0.02em'
             }}
           >
-            Lifestyle Beyond <span style={{ color: goldColor }}>Expectations</span>
+            Lifestyle Beyond <span style={{ color: COLORS.gold }}>Expectations</span>
           </h2>
 
           <p 
             className="text-base md:text-lg text-gray-700 mb-4 max-w-2xl mx-auto"
-            style={{ fontFamily: '"Lora", sans-serif' }}
+            style={{ fontFamily: FONTS.body }}
           >
             A curated ecosystem of world-class amenities. Luxury is not added. It is integrated.
           </p>
 
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-3 mt-4 md:mt-6">
-            <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
-            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: goldColor }} />
-            <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
+            <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
+            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: COLORS.gold }} />
+            <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
           </div>
         </div>
 
@@ -73,29 +82,31 @@ export default function AmenitiesSection() {
           {amenities.map((amenity, idx) => (
             <div
               key={idx}
-              className="p-4 md:p-5 rounded-2xl shadow-md"
+              className="p-4 md:p-5 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
               style={{
                 backgroundColor: 'white',
-                border: `2px solid ${goldColor}30`
+                border: `2px solid ${COLORS.lightGold}`
               }}
             >
               {/* Text */}
               <div className="text-left">
                 <h3 
-                  className="text-sm md:text-base font-black mb-2 md:mb-2.5 text-gray-900 line-clamp-2"
+                  className="text-sm md:text-base font-light mb-2 md:mb-2.5 text-gray-900 line-clamp-2"
                   style={{
-                    fontFamily: '"Playfair Display", serif',
-                    color: darkCharcoal
+                    fontFamily: FONTS.display,
+                    color: COLORS.darkCharcoal,
+                    letterSpacing: '-0.01em'
                   }}
                 >
                   {amenity.name}
                 </h3>
 
                 <p 
-                  className="text-xs md:text-xs font-semibold uppercase tracking-wider"
+                  className="text-xs md:text-xs font-light uppercase tracking-wider"
                   style={{
-                    color: goldColor,
-                    fontFamily: '"Lora", sans-serif'
+                    color: COLORS.gold,
+                    fontFamily: FONTS.accent,
+                    letterSpacing: '0.1em'
                   }}
                 >
                   {amenity.category}
@@ -109,7 +120,7 @@ export default function AmenitiesSection() {
       </div>
 
       <style jsx>{`
-        @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
       `}</style>
     </section>
   );

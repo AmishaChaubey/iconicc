@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Download, X } from 'lucide-react';
 
-const goldColor = '#D0AB69';
-const darkCharcoal = '#1a1a1a';
+const COLORS = {
+  gold: '#D4AF37',
+  darkCharcoal: '#0a0a0a',
+  lightGold: 'rgba(212, 175, 55, 0.15)',
+};
+
+const FONTS = {
+  display: '"Bodoni Moda", serif',
+  accent: '"Montserrat", sans-serif',
+  body: '"Cormorant Garamond", serif',
+};
 
 // Enquiry Popup Component (inline)
 function EnquiryPopup({ isOpen, onClose }) {
@@ -34,7 +43,7 @@ function EnquiryPopup({ isOpen, onClose }) {
       <div 
         className="bg-white rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm p-4 md:p-6 relative"
         style={{
-          border: `2px solid ${goldColor}20`,
+          border: `1px solid ${COLORS.lightGold}`,
           animation: 'fadeInZoom 0.3s ease-in-out'
         }}
       >
@@ -50,17 +59,18 @@ function EnquiryPopup({ isOpen, onClose }) {
         {/* Header */}
         <div className="text-center mb-4 md:mb-5 pr-8">
           <h2 
-            className="text-xl md:text-2xl font-black mb-1"
+            className="text-xl md:text-2xl font-light mb-1"
             style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal
+              fontFamily: FONTS.display,
+              color: COLORS.darkCharcoal,
+              letterSpacing: '-0.01em'
             }}
           >
             Enquire Now
           </h2>
           <p 
-            className="text-xs md:text-sm text-gray-600 font-semibold"
-            style={{ fontFamily: '"Lora", sans-serif' }}
+            className="text-xs md:text-sm text-gray-600 font-light"
+            style={{ fontFamily: FONTS.body }}
           >
             Get in touch with our team
           </p>
@@ -76,11 +86,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -92,11 +102,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -108,11 +118,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -124,20 +134,20 @@ function EnquiryPopup({ isOpen, onClose }) {
             rows="2"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900 resize-none"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
           />
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-2.5 md:py-3 font-black rounded-lg transition transform hover:scale-105 disabled:opacity-70 text-black text-xs md:text-sm uppercase tracking-wider"
+            className="w-full py-2.5 md:py-3 font-light rounded-lg transition transform hover:scale-105 disabled:opacity-70 text-black text-xs md:text-sm uppercase tracking-wider"
             style={{
-              backgroundColor: goldColor,
-              fontFamily: '"Lora", sans-serif'
+              backgroundColor: COLORS.gold,
+              fontFamily: FONTS.accent
             }}
           >
             {isSubmitting ? 'Submitting...' : 'Send Enquiry'}
@@ -146,15 +156,15 @@ function EnquiryPopup({ isOpen, onClose }) {
 
         {/* Footer */}
         <p 
-          className="text-xs text-gray-500 text-center"
-          style={{ fontFamily: '"Lora", sans-serif' }}
+          className="text-xs text-gray-500 text-center font-light"
+          style={{ fontFamily: FONTS.accent }}
         >
           ✓ We respect your privacy
         </p>
       </div>
 
       <style jsx>{`
-        @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
         @keyframes fadeInZoom {
           from {
@@ -228,26 +238,30 @@ export default function HeroBanner() {
 
               {/* Main Heading */}
               <h1 
-                className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-2 sm:mb-3 md:mb-4 text-white leading-tight animate-fadeInDown"
-                style={{ fontFamily: '"Playfair Display", serif', animationDelay: '0.1s' }}
+                className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 sm:mb-3 md:mb-4 text-white leading-tight animate-fadeInDown"
+                style={{ 
+                  fontFamily: FONTS.display,
+                  letterSpacing: '-0.03em',
+                  animationDelay: '0.1s' 
+                }}
               >
                 ICONIC<br />
-                <span style={{ color: goldColor }}>TOWER</span>
+                <span style={{ color: COLORS.gold }}>TOWER</span>
               </h1>
 
               {/* Location */}
-              <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-2 sm:mb-3 animate-fadeInDown" style={{ animationDelay: '0.2s' }}>
+              <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-2 sm:mb-3 animate-fadeInDown font-light" style={{ fontFamily: FONTS.body, animationDelay: '0.2s' }}>
                 Noida Extension | Greater Noida West
               </p>
 
               {/* Tagline */}
-              <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 sm:mb-6 md:mb-8 animate-fadeInDown" style={{ animationDelay: '0.3s' }}>
+              <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 sm:mb-6 md:mb-8 animate-fadeInDown" style={{ fontFamily: FONTS.display, letterSpacing: '-0.02em', animationDelay: '0.3s' }}>
                 Where Scale Meets Sophistication
               </p>
 
               {/* Details */}
               <div className="mb-4 sm:mb-6 md:mb-8 space-y-2 sm:space-y-3 text-white animate-fadeInDown" style={{ animationDelay: '0.4s' }}>
-                <p className="text-sm sm:text-base md:text-lg font-semibold" style={{ fontFamily: '"Lora", sans-serif' }}>
+                <p className="text-sm sm:text-base md:text-lg font-light" style={{ fontFamily: FONTS.body }}>
                   Luxury 4 BHK + Study Residences
                 </p>
               </div>
@@ -256,15 +270,15 @@ export default function HeroBanner() {
               <div className="flex gap-2 sm:gap-3 md:gap-4 animate-fadeInDown w-fit" style={{ animationDelay: '0.5s' }}>
                 <button 
                   onClick={() => setShowEnquiryPopup(true)}
-                  className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 font-black text-xs sm:text-sm uppercase tracking-widest rounded-lg transition transform hover:scale-105 active:scale-95 text-black shadow-lg whitespace-nowrap"
-                  style={{ backgroundColor: goldColor, fontFamily: '"Lora", sans-serif' }}
+                  className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 font-light text-xs sm:text-sm uppercase tracking-widest rounded-lg transition transform hover:scale-105 active:scale-95 text-black shadow-lg whitespace-nowrap"
+                  style={{ backgroundColor: COLORS.gold, fontFamily: FONTS.accent }}
                 >
                   Enquire Now
                 </button>
                 <button 
                   onClick={downloadBrochure}
-                  className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 font-black text-xs sm:text-sm uppercase tracking-widest rounded-lg transition transform hover:scale-105 active:scale-95 text-white border-2 flex items-center justify-center gap-2 shadow-lg whitespace-nowrap"
-                  style={{ borderColor: goldColor, fontFamily: '"Lora", sans-serif' }}
+                  className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 font-light text-xs sm:text-sm uppercase tracking-widest rounded-lg transition transform hover:scale-105 active:scale-95 text-white border-2 flex items-center justify-center gap-2 shadow-lg whitespace-nowrap"
+                  style={{ borderColor: COLORS.gold, fontFamily: FONTS.accent }}
                 >
                   <Download size={16} /> Brochure
                 </button>
@@ -275,20 +289,20 @@ export default function HeroBanner() {
             <div 
               className="w-full rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl animate-fadeInRight"
               style={{
-                border: `2px solid ${goldColor}`,
+                border: `2px solid ${COLORS.gold}`,
                 background: `linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 100%)`,
-                boxShadow: `0 8px 32px 0 rgba(208, 171, 105, 0.15), inset 0 0 20px rgba(208, 171, 105, 0.05)`,
+                boxShadow: `0 8px 32px 0 rgba(212, 175, 55, 0.15), inset 0 0 20px rgba(212, 175, 55, 0.05)`,
               }}
             >
               {/* Form Header */}
               <div className="mb-4 sm:mb-5">
                 <h3 
-                  className="text-2xl sm:text-3xl font-black text-white"
-                  style={{ fontFamily: '"Playfair Display", serif' }}
+                  className="text-2xl sm:text-3xl font-light text-white"
+                  style={{ fontFamily: FONTS.display, letterSpacing: '-0.01em' }}
                 >
                   Quick Quote
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-200 mt-1" style={{ fontFamily: '"Lora", sans-serif' }}>
+                <p className="text-xs sm:text-sm text-gray-200 mt-1 font-light" style={{ fontFamily: FONTS.body }}>
                   Get in touch instantly
                 </p>
               </div>
@@ -303,11 +317,11 @@ export default function HeroBanner() {
                   onChange={handleFormChange}
                   className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
                   style={{
-                    borderColor: goldColor,
-                    fontFamily: '"Lora", sans-serif',
+                    borderColor: COLORS.gold,
+                    fontFamily: FONTS.body,
                   }}
                   onFocus={(e) => {
-                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                    e.target.style.boxShadow = `0 0 15px rgba(212, 175, 55, 0.3)`;
                   }}
                   onBlur={(e) => {
                     e.target.style.boxShadow = 'none';
@@ -324,11 +338,11 @@ export default function HeroBanner() {
                   onChange={handleFormChange}
                   className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
                   style={{
-                    borderColor: goldColor,
-                    fontFamily: '"Lora", sans-serif',
+                    borderColor: COLORS.gold,
+                    fontFamily: FONTS.body,
                   }}
                   onFocus={(e) => {
-                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                    e.target.style.boxShadow = `0 0 15px rgba(212, 175, 55, 0.3)`;
                   }}
                   onBlur={(e) => {
                     e.target.style.boxShadow = 'none';
@@ -345,11 +359,11 @@ export default function HeroBanner() {
                   onChange={handleFormChange}
                   className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
                   style={{
-                    borderColor: goldColor,
-                    fontFamily: '"Lora", sans-serif',
+                    borderColor: COLORS.gold,
+                    fontFamily: FONTS.body,
                   }}
                   onFocus={(e) => {
-                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                    e.target.style.boxShadow = `0 0 15px rgba(212, 175, 55, 0.3)`;
                   }}
                   onBlur={(e) => {
                     e.target.style.boxShadow = 'none';
@@ -361,17 +375,17 @@ export default function HeroBanner() {
                 <button
                   type="submit"
                   disabled={formSubmitted}
-                  className="w-full py-2.5 sm:py-3 font-black rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-70 text-black text-sm uppercase tracking-wider shadow-lg hover:shadow-2xl mt-3"
+                  className="w-full py-2.5 sm:py-3 font-light rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-70 text-black text-sm uppercase tracking-wider shadow-lg hover:shadow-2xl mt-3"
                   style={{ 
-                    backgroundColor: goldColor, 
-                    fontFamily: '"Lora", sans-serif'
+                    backgroundColor: COLORS.gold,
+                    fontFamily: FONTS.accent
                   }}
                 >
                   {formSubmitted ? 'Submitting...' : 'Get Quote'}
                 </button>
 
                 {/* Privacy Text */}
-                <p className="text-xs text-gray-200 text-center mt-2" style={{ fontFamily: '"Lora", sans-serif' }}>
+                <p className="text-xs text-gray-200 text-center mt-2 font-light" style={{ fontFamily: FONTS.accent }}>
                   ✓ We respect your privacy
                 </p>
               </form>
@@ -380,7 +394,7 @@ export default function HeroBanner() {
         </div>
 
         <style jsx>{`
-          @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+          @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
           @keyframes fadeInDown {
             from {
@@ -429,7 +443,7 @@ export default function HeroBanner() {
           @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
             input:focus,
             textarea:focus {
-              --tw-shadow: 0 0 20px rgba(208, 171, 105, 0.2);
+              --tw-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
               box-shadow: var(--tw-shadow);
             }
           }

@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Check, ChevronDown, X } from 'lucide-react';
 
-const goldColor = '#D0AB69';
-const darkCharcoal = '#1a1a1a';
+const COLORS = {
+  gold: '#D4AF37',
+  darkCharcoal: '#0a0a0a',
+  lightGold: 'rgba(212, 175, 55, 0.15)',
+};
+
+const FONTS = {
+  display: '"Bodoni Moda", serif',
+  accent: '"Montserrat", sans-serif',
+  body: '"Cormorant Garamond", serif',
+};
 
 // Enquiry Popup Component (inline)
 function EnquiryPopup({ isOpen, onClose }) {
@@ -34,7 +43,7 @@ function EnquiryPopup({ isOpen, onClose }) {
       <div 
         className="bg-white rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm p-4 md:p-6 relative"
         style={{
-          border: `2px solid ${goldColor}20`,
+          border: `2px solid ${COLORS.lightGold}`,
           animation: 'fadeInZoom 0.3s ease-in-out'
         }}
       >
@@ -50,17 +59,18 @@ function EnquiryPopup({ isOpen, onClose }) {
         {/* Header */}
         <div className="text-center mb-4 md:mb-5 pr-8">
           <h2 
-            className="text-xl md:text-2xl font-black mb-1"
+            className="text-xl md:text-2xl font-light mb-1"
             style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal
+              fontFamily: FONTS.display,
+              color: COLORS.darkCharcoal,
+              letterSpacing: '-0.01em'
             }}
           >
             Enquire Now
           </h2>
           <p 
-            className="text-xs md:text-sm text-gray-600 font-semibold"
-            style={{ fontFamily: '"Lora", sans-serif' }}
+            className="text-xs md:text-sm text-gray-600 font-light"
+            style={{ fontFamily: FONTS.body }}
           >
             Get in touch with our team
           </p>
@@ -76,11 +86,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -92,11 +102,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -108,11 +118,11 @@ function EnquiryPopup({ isOpen, onClose }) {
             onChange={handleFormChange}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
             required
           />
 
@@ -124,20 +134,20 @@ function EnquiryPopup({ isOpen, onClose }) {
             rows="2"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none transition text-xs md:text-sm text-gray-900 resize-none"
             style={{
-              borderColor: `${goldColor}40`,
-              fontFamily: '"Lora", sans-serif'
+              borderColor: `${COLORS.gold}40`,
+              fontFamily: FONTS.body
             }}
-            onFocus={(e) => e.target.style.borderColor = goldColor}
-            onBlur={(e) => e.target.style.borderColor = `${goldColor}40`}
+            onFocus={(e) => e.target.style.borderColor = COLORS.gold}
+            onBlur={(e) => e.target.style.borderColor = `${COLORS.gold}40`}
           />
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-2.5 md:py-3 font-black rounded-lg transition transform hover:scale-105 disabled:opacity-70 text-black text-xs md:text-sm uppercase tracking-wider"
+            className="w-full py-2.5 md:py-3 font-light rounded-lg transition transform hover:scale-105 disabled:opacity-70 text-black text-xs md:text-sm uppercase tracking-wider"
             style={{
-              backgroundColor: goldColor,
-              fontFamily: '"Lora", sans-serif'
+              backgroundColor: COLORS.gold,
+              fontFamily: FONTS.accent
             }}
           >
             {isSubmitting ? 'Submitting...' : 'Send Enquiry'}
@@ -147,14 +157,14 @@ function EnquiryPopup({ isOpen, onClose }) {
         {/* Footer */}
         <p 
           className="text-xs text-gray-500 text-center"
-          style={{ fontFamily: '"Lora", sans-serif' }}
+          style={{ fontFamily: FONTS.accent }}
         >
           ✓ We respect your privacy
         </p>
       </div>
 
       <style jsx>{`
-        @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
         @keyframes fadeInZoom {
           from {
@@ -208,7 +218,7 @@ export default function PricingSection() {
               <span 
                 className="text-xs md:text-sm font-semibold tracking-widest text-amber-700 uppercase"
                 style={{
-                  fontFamily: '"Lora", sans-serif',
+                  fontFamily: FONTS.accent,
                   letterSpacing: '0.15em'
                 }}
               >
@@ -217,10 +227,10 @@ export default function PricingSection() {
             </div>
 
             <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-light mb-4 leading-tight"
               style={{
-                fontFamily: '"Playfair Display", serif',
-                color: darkCharcoal,
+                fontFamily: FONTS.display,
+                color: COLORS.darkCharcoal,
                 letterSpacing: '-0.02em'
               }}
             >
@@ -229,9 +239,9 @@ export default function PricingSection() {
 
             {/* Decorative line */}
             <div className="flex items-center justify-center gap-3 mt-4 md:mt-6">
-              <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
-              <div className="w-1 h-1 rounded-full" style={{ backgroundColor: goldColor }} />
-              <div className="w-6 h-px" style={{ backgroundColor: goldColor }} />
+              <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
+              <div className="w-1 h-1 rounded-full" style={{ backgroundColor: COLORS.gold }} />
+              <div className="w-6 h-px" style={{ backgroundColor: COLORS.gold }} />
             </div>
           </div>
 
@@ -241,31 +251,31 @@ export default function PricingSection() {
             <div 
               className="group p-6 md:p-8 rounded-2xl md:rounded-3xl backdrop-blur transition-all duration-500 hover:shadow-xl"
               style={{
-                border: `2px solid ${goldColor}40`,
+                border: `2px solid ${COLORS.lightGold}`,
                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                borderRadius: '24px'
               }}
             >
               <div className="mb-6 md:mb-8">
                 <h3 
-                  className="text-2xl md:text-3xl font-black mb-2"
+                  className="text-2xl md:text-3xl font-light mb-2"
                   style={{
-                    fontFamily: '"Playfair Display", serif',
-                    color: darkCharcoal
+                    fontFamily: FONTS.display,
+                    color: COLORS.darkCharcoal,
+                    letterSpacing: '-0.01em'
                   }}
                 >
                   4 BHK + Study + 4T
                 </h3>
                 <p 
-                  className="text-sm md:text-base font-semibold"
-                  style={{ color: goldColor, fontFamily: '"Lora", sans-serif' }}
+                  className="text-sm md:text-base font-light"
+                  style={{ color: COLORS.gold, fontFamily: FONTS.body }}
                 >
                   Super Spacious Luxury Layout
                 </p>
               </div>
 
               {/* Spacer line */}
-              <div className="mb-6 md:mb-8 h-px" style={{ backgroundColor: `${goldColor}20` }} />
+              <div className="mb-6 md:mb-8 h-px" style={{ backgroundColor: COLORS.lightGold }} />
 
               {/* Key Features */}
               <div className="space-y-3 md:space-y-4 mb-8">
@@ -273,11 +283,11 @@ export default function PricingSection() {
                   <Check 
                     size={20} 
                     className="flex-shrink-0 mt-0.5" 
-                    style={{ color: goldColor }} 
+                    style={{ color: COLORS.gold }} 
                   />
                   <span 
-                    className="text-sm md:text-base text-gray-700"
-                    style={{ fontFamily: '"Lora", sans-serif' }}
+                    className="text-sm md:text-base text-gray-700 font-light"
+                    style={{ fontFamily: FONTS.body }}
                   >
                     Flexible Construction Linked Payment Plan
                   </span>
@@ -287,11 +297,11 @@ export default function PricingSection() {
                   <Check 
                     size={20} 
                     className="flex-shrink-0 mt-0.5" 
-                    style={{ color: goldColor }} 
+                    style={{ color: COLORS.gold }} 
                   />
                   <span 
-                    className="text-sm md:text-base text-gray-700"
-                    style={{ fontFamily: '"Lora", sans-serif' }}
+                    className="text-sm md:text-base text-gray-700 font-light"
+                    style={{ fontFamily: FONTS.body }}
                   >
                     Attractive Early Buyer Benefits
                   </span>
@@ -301,11 +311,11 @@ export default function PricingSection() {
                   <Check 
                     size={20} 
                     className="flex-shrink-0 mt-0.5" 
-                    style={{ color: goldColor }} 
+                    style={{ color: COLORS.gold }} 
                   />
                   <span 
-                    className="text-sm md:text-base font-semibold text-red-600"
-                    style={{ fontFamily: '"Lora", sans-serif' }}
+                    className="text-sm md:text-base font-light text-red-600"
+                    style={{ fontFamily: FONTS.body }}
                   >
                     Limited Inventory Available
                   </span>
@@ -314,11 +324,11 @@ export default function PricingSection() {
 
               {/* Enquiry Button */}
               <button
-                className="w-full py-3 md:py-4 px-6 font-black uppercase tracking-widest text-sm md:text-base rounded-lg overflow-hidden group/btn transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                className="w-full py-3 md:py-4 px-6 font-light uppercase tracking-widest text-sm md:text-base rounded-lg overflow-hidden group/btn transition-all duration-300 hover:shadow-lg transform hover:scale-105"
                 style={{
-                  backgroundColor: goldColor,
-                  color: darkCharcoal,
-                  fontFamily: '"Lora", sans-serif'
+                  backgroundColor: COLORS.gold,
+                  color: COLORS.darkCharcoal,
+                  fontFamily: FONTS.accent
                 }}
                 onClick={() => setShowEnquiryPopup(true)}
               >
@@ -341,15 +351,16 @@ export default function PricingSection() {
             <div 
               className="p-6 md:p-8 rounded-2xl md:rounded-3xl backdrop-blur transition-all duration-500"
               style={{
-                border: `2px solid ${goldColor}40`,
+                border: `2px solid ${COLORS.lightGold}`,
                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
               }}
             >
               <h3 
-                className="text-2xl md:text-3xl font-black mb-6 md:mb-8"
+                className="text-2xl md:text-3xl font-light mb-6 md:mb-8"
                 style={{
-                  fontFamily: '"Playfair Display", serif',
-                  color: darkCharcoal
+                  fontFamily: FONTS.display,
+                  color: COLORS.darkCharcoal,
+                  letterSpacing: '-0.01em'
                 }}
               >
                 Construction Linked Payment
@@ -361,17 +372,17 @@ export default function PricingSection() {
                   <div 
                     key={idx} 
                     className="flex justify-between items-center p-3 rounded-lg bg-white/50 hover:bg-white transition-colors duration-300"
-                    style={{ borderLeft: `3px solid ${goldColor}` }}
+                    style={{ borderLeft: `3px solid ${COLORS.gold}` }}
                   >
                     <span 
-                      className="text-xs md:text-sm font-semibold text-gray-700"
-                      style={{ fontFamily: '"Lora", sans-serif' }}
+                      className="text-xs md:text-sm font-light text-gray-700"
+                      style={{ fontFamily: FONTS.body }}
                     >
                       {item.milestone}
                     </span>
                     <span 
-                      className="text-sm md:text-base font-black"
-                      style={{ color: goldColor }}
+                      className="text-sm md:text-base font-light"
+                      style={{ color: COLORS.gold, fontFamily: FONTS.display }}
                     >
                       {item.percentage}
                     </span>
@@ -383,13 +394,14 @@ export default function PricingSection() {
               <button
                 onClick={() => setExpandPayment(!expandPayment)}
                 className="w-full py-3 px-4 rounded-lg border transition-all duration-300 flex items-center justify-between hover:bg-gray-50 mt-4"
-                style={{ borderColor: `${goldColor}40` }}
+                style={{ borderColor: COLORS.lightGold }}
               >
                 <span 
-                  className="font-semibold text-sm md:text-base"
+                  className="font-light text-sm md:text-base"
                   style={{
-                    fontFamily: '"Lora", sans-serif',
-                    color: goldColor
+                    fontFamily: FONTS.accent,
+                    color: COLORS.gold,
+                    letterSpacing: '0.05em'
                   }}
                 >
                   {expandPayment ? 'Hide Full Schedule' : 'View Full Schedule'}
@@ -397,7 +409,7 @@ export default function PricingSection() {
                 <ChevronDown 
                   size={20}
                   style={{ 
-                    color: goldColor,
+                    color: COLORS.gold,
                     transform: expandPayment ? 'rotate(180deg)' : 'rotate(0deg)',
                     transition: 'transform 0.3s'
                   }}
@@ -411,17 +423,17 @@ export default function PricingSection() {
                     <div 
                       key={idx + 5} 
                       className="flex justify-between items-center p-3 rounded-lg bg-white/50 hover:bg-white transition-colors duration-300"
-                      style={{ borderLeft: `3px solid ${goldColor}` }}
+                      style={{ borderLeft: `3px solid ${COLORS.gold}` }}
                     >
                       <span 
-                        className="text-xs md:text-sm font-semibold text-gray-700"
-                        style={{ fontFamily: '"Lora", sans-serif' }}
+                        className="text-xs md:text-sm font-light text-gray-700"
+                        style={{ fontFamily: FONTS.body }}
                       >
                         {item.milestone}
                       </span>
                       <span 
-                        className="text-sm md:text-base font-black"
-                        style={{ color: goldColor }}
+                        className="text-sm md:text-base font-light"
+                        style={{ color: COLORS.gold, fontFamily: FONTS.display }}
                       >
                         {item.percentage}
                       </span>
@@ -431,8 +443,8 @@ export default function PricingSection() {
               )}
 
               <p 
-                className="text-center text-gray-600 font-semibold mt-6 text-xs md:text-sm"
-                style={{ fontFamily: '"Lora", sans-serif' }}
+                className="text-center text-gray-600 font-light mt-6 text-xs md:text-sm"
+                style={{ fontFamily: FONTS.body }}
               >
                 Structured for convenience and confidence.
               </p>
@@ -441,7 +453,7 @@ export default function PricingSection() {
         </div>
 
         <style jsx>{`
-          @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+          @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
         `}</style>
       </section>
 

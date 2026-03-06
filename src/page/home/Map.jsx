@@ -1,8 +1,18 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 
-const goldColor = '#D0AB69';
-const darkCharcoal = '#1a1a1a';
+const COLORS = {
+  gold: '#D4AF37',
+  darkCharcoal: '#0a0a0a',
+  lightGold: 'rgba(212, 175, 55, 0.15)',
+  cream: '#faf7f2',
+};
+
+const FONTS = {
+  display: '"Bodoni Moda", serif',
+  accent: '"Montserrat", sans-serif',
+  body: '"Cormorant Garamond", serif',
+};
 
 export default function MapSection() {
   const locationFeatures = [
@@ -25,40 +35,58 @@ export default function MapSection() {
   ];
 
   return (
-    <section id="location" className="relative py-12 md:py-20 px-4 md:px-6 overflow-hidden bg-white">
+    <section id="location" className="relative py-10 md:py-14 px-4 md:px-6 overflow-hidden" style={{ backgroundColor: COLORS.cream }}>
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-amber-50 rounded-full blur-3xl opacity-20" />
+        <div className="absolute bottom-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-amber-50 rounded-full blur-3xl opacity-10" />
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8 md:mb-10">
-          <h2 
-            className="text-3xl md:text-4xl font-black mb-2"
-            style={{
-              fontFamily: '"Playfair Display", serif',
-              color: goldColor
-            }}
-          >
-            Iconic Tower Location
-          </h2>
-          <h3 
-            className="text-xl md:text-2xl font-black"
-            style={{
-              fontFamily: '"Playfair Display", serif',
-              color: darkCharcoal
-            }}
-          >
-            Track On Map
-          </h3>
+          <div className="inline-flex items-center gap-2 mb-3">
+            <div 
+              className="w-4 h-px"
+              style={{ backgroundColor: COLORS.gold }}
+            />
+            <span
+              className="text-xs tracking-widest uppercase"
+              style={{
+                fontFamily: FONTS.accent,
+                color: COLORS.gold,
+                letterSpacing: '0.2em',
+              }}
+            >
+              Strategic Location
+            </span>
+          </div>
+
+          <div>
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light mb-2 leading-tight"
+              style={{
+                fontFamily: FONTS.display,
+                color: COLORS.darkCharcoal,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              Location & <span style={{ color: COLORS.gold }}>Connectivity</span>
+            </h2>
+            <p
+              className="text-base md:text-lg max-w-2xl text-gray-700 leading-relaxed font-light"
+              style={{ fontFamily: FONTS.body }}
+            >
+              Strategically positioned for seamless connectivity and premium lifestyle access.
+            </p>
+          </div>
         </div>
 
         {/* Map Container */}
         <div 
-          className="rounded-2xl md:rounded-3xl overflow-hidden shadow-lg md:shadow-xl mb-8 md:mb-10 h-72 md:h-96"
+          className="rounded-lg md:rounded-2xl overflow-hidden shadow-lg md:shadow-xl mb-8 md:mb-10 h-72 md:h-96"
           style={{
-            border: `2px solid ${goldColor}20`
+            border: `1px solid ${COLORS.lightGold}`
           }}
         >
           <iframe
@@ -76,7 +104,7 @@ export default function MapSection() {
         {/* Features Grid - 3 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {locationFeatures.map((column, colIdx) => (
-            <div key={colIdx} className="space-y-3 md:space-y-4">
+            <div key={colIdx} className="space-y-4 md:space-y-5">
               {column.map((feature, idx) => (
                 <div 
                   key={idx}
@@ -85,11 +113,11 @@ export default function MapSection() {
                   <MapPin 
                     size={20} 
                     className="flex-shrink-0 mt-0.5"
-                    style={{ color: goldColor }}
+                    style={{ color: COLORS.gold }}
                   />
                   <p 
-                    className="text-sm md:text-base font-semibold text-gray-800"
-                    style={{ fontFamily: '"Lora", sans-serif' }}
+                    className="text-sm md:text-base font-light text-gray-800"
+                    style={{ fontFamily: FONTS.body }}
                   >
                     {feature}
                   </p>
@@ -101,7 +129,7 @@ export default function MapSection() {
       </div>
 
       <style jsx>{`
-        @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600;700&display=swap);
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
       `}</style>
     </section>
   );
