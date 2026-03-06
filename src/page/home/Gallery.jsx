@@ -338,6 +338,14 @@ export default function GallerySection() {
         image: 'https://images.pexels.com/photos/276671/pexels-photo-276671.jpeg?auto=compress&cs=tinysrgb&w=600',
         span: 'lg:col-span-1',
       },
+
+   {
+  id:9,
+  title:'Pool Deck',
+  subtitle:'Luxury poolside experience',
+  image:'https://images.pexels.com/photos/32509619/pexels-photo-32509619.jpeg',
+  span:'lg:col-span-1'
+}
     ],
     []
   );
