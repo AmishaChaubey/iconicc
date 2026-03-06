@@ -312,7 +312,7 @@ export default function PriceListSection() {
                           </p>
                           <p 
                             className="text-xs md:text-sm font-light text-gray-700"
-                            style={{ fontFamily: FONTS.body }}
+                            // style={{ fontFamily: FONTS.body }}
                           >
                             {item.area}
                           </p>
@@ -322,7 +322,7 @@ export default function PriceListSection() {
                         <div className="hidden md:block">
                           <p 
                             className="text-xs md:text-xs uppercase font-light text-gray-600 mb-1"
-                            style={{ fontFamily: FONTS.accent, letterSpacing: '0.1em' }}
+                            style={{  letterSpacing: '0.1em' }}
                           >
                             Price
                           </p>
