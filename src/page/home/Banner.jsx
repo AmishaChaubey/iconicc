@@ -271,167 +271,107 @@ export default function HeroBanner() {
               </div>
             </div>
 
-            {/* Right Glassmorphism Form */}
+            {/* Right Glassmorphism Form - COMPACT & VISIBLE */}
             <div 
-              className="w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 lg:p-6 backdrop-blur-xl transition-all duration-500 hover:shadow-2xl animate-fadeInRight"
+              className="w-full rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl animate-fadeInRight"
               style={{
-                border: `1.5px solid ${goldColor}30`,
-                background: `linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)`,
-                boxShadow: `0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 32px rgba(208, 171, 105, 0.1)`,
-                webkitBackdropFilter: 'blur(12px)',
+                border: `2px solid ${goldColor}`,
+                background: `linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 100%)`,
+                boxShadow: `0 8px 32px 0 rgba(208, 171, 105, 0.15), inset 0 0 20px rgba(208, 171, 105, 0.05)`,
               }}
             >
               {/* Form Header */}
-              <div className="mb-5 sm:mb-6 md:mb-8">
+              <div className="mb-4 sm:mb-5">
                 <h3 
-                  className="text-xl sm:text-2xl md:text-3xl font-black text-transparent bg-gradient-to-r from-white to-gray-200 bg-clip-text"
+                  className="text-2xl sm:text-3xl font-black text-white"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  Get Quote
+                  Quick Quote
                 </h3>
-                <div 
-                  className="h-1 w-12 rounded-full mt-2 sm:mt-3"
-                  style={{ background: `linear-gradient(90deg, ${goldColor}, transparent)` }}
-                ></div>
+                <p className="text-xs sm:text-sm text-gray-200 mt-1" style={{ fontFamily: '"Lora", sans-serif' }}>
+                  Get in touch instantly
+                </p>
               </div>
 
-              <form onSubmit={handleFormSubmit} className="space-y-3 sm:space-y-4">
+              <form onSubmit={handleFormSubmit} className="space-y-2.5 sm:space-y-3">
                 {/* Name Input */}
-                <div className="group relative">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleFormChange}
-                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3 md:py-3.5 border-1.5 rounded-xl focus:outline-none transition-all duration-300 text-xs sm:text-sm text-white placeholder-gray-400 bg-white/5 hover:bg-white/10 focus:bg-white/15"
-                    style={{
-                      borderColor: `${goldColor}30`,
-                      fontFamily: '"Lora", sans-serif',
-                      backdropFilter: 'blur(8px)'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = goldColor;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.15)';
-                      e.target.style.boxShadow = `0 0 20px rgba(208, 171, 105, 0.2)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = `${goldColor}30`;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                    required
-                  />
-              
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
+                  style={{
+                    borderColor: goldColor,
+                    fontFamily: '"Lora", sans-serif',
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.boxShadow = 'none';
+                  }}
+                  required
+                />
 
                 {/* Email Input */}
-                <div className="group relative">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleFormChange}
-                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3 md:py-3.5 border-1.5 rounded-xl focus:outline-none transition-all duration-300 text-xs sm:text-sm text-white placeholder-gray-400 bg-white/5 hover:bg-white/10 focus:bg-white/15"
-                    style={{
-                      borderColor: `${goldColor}30`,
-                      fontFamily: '"Lora", sans-serif',
-                      backdropFilter: 'blur(8px)'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = goldColor;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.15)';
-                      e.target.style.boxShadow = `0 0 20px rgba(208, 171, 105, 0.2)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = `${goldColor}30`;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                    required
-                  />
-              
-                </div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
+                  style={{
+                    borderColor: goldColor,
+                    fontFamily: '"Lora", sans-serif',
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.boxShadow = 'none';
+                  }}
+                  required
+                />
 
                 {/* Phone Input */}
-                <div className="group relative">
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleFormChange}
-                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3 md:py-3.5 border-1.5 rounded-xl focus:outline-none transition-all duration-300 text-xs sm:text-sm text-white placeholder-gray-400 bg-white/5 hover:bg-white/10 focus:bg-white/15"
-                    style={{
-                      borderColor: `${goldColor}30`,
-                      fontFamily: '"Lora", sans-serif',
-                      backdropFilter: 'blur(8px)'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = goldColor;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.15)';
-                      e.target.style.boxShadow = `0 0 20px rgba(208, 171, 105, 0.2)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = `${goldColor}30`;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                    required
-                  />
-              
-                </div>
-
-                {/* Message Textarea */}
-                <div className="group relative">
-                  <textarea
-                    name="message"
-                    placeholder="Message (Optional)"
-                    value={formData.message}
-                    onChange={handleFormChange}
-                    rows="2"
-                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3 md:py-3.5 border-1.5 rounded-xl focus:outline-none transition-all duration-300 text-xs sm:text-sm text-white placeholder-gray-400 bg-white/5 hover:bg-white/10 focus:bg-white/15 resize-none"
-                    style={{
-                      borderColor: `${goldColor}30`,
-                      fontFamily: '"Lora", sans-serif',
-                      backdropFilter: 'blur(8px)'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = goldColor;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.15)';
-                      e.target.style.boxShadow = `0 0 20px rgba(208, 171, 105, 0.2)`;
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = `${goldColor}30`;
-                      e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-              
-                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  className="w-full px-4 py-2 sm:py-2.5 rounded-lg focus:outline-none transition-all duration-300 text-sm text-white placeholder-gray-300 bg-white/10 hover:bg-white/15 focus:bg-white/20 border"
+                  style={{
+                    borderColor: goldColor,
+                    fontFamily: '"Lora", sans-serif',
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.boxShadow = `0 0 15px rgba(208, 171, 105, 0.3)`;
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.boxShadow = 'none';
+                  }}
+                  required
+                />
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={formSubmitted}
-                  className="w-full py-2.5 sm:py-3 md:py-3.5 font-black rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-70 text-black text-xs sm:text-sm uppercase tracking-widest shadow-lg hover:shadow-2xl relative overflow-hidden group"
+                  className="w-full py-2.5 sm:py-3 font-black rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-70 text-black text-sm uppercase tracking-wider shadow-lg hover:shadow-2xl mt-3"
                   style={{ 
                     backgroundColor: goldColor, 
                     fontFamily: '"Lora", sans-serif'
                   }}
                 >
-                  <span className="relative z-10 block transition-all duration-300 group-hover:scale-110">
-                    {formSubmitted ? 'Submitting...' : 'Get Quote'}
-                  </span>
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                    style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 100%)' }}
-                  ></div>
+                  {formSubmitted ? 'Submitting...' : 'Get Quote'}
                 </button>
 
                 {/* Privacy Text */}
-                <p className="text-xs text-gray-300/80 text-center" style={{ fontFamily: '"Lora", sans-serif' }}>
+                <p className="text-xs text-gray-200 text-center mt-2" style={{ fontFamily: '"Lora", sans-serif' }}>
                   ✓ We respect your privacy
                 </p>
               </form>
@@ -487,8 +427,8 @@ export default function HeroBanner() {
 
           /* Smooth focus glow effect */
           @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
-            .group input:focus,
-            .group textarea:focus {
+            input:focus,
+            textarea:focus {
               --tw-shadow: 0 0 20px rgba(208, 171, 105, 0.2);
               box-shadow: var(--tw-shadow);
             }
