@@ -120,18 +120,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Brochure Button */}
-        <button
-          onClick={handleDownload}
-          className="lg:hidden flex items-center justify-center p-2.5 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
-          style={{
-            color: goldColor,
-            backgroundColor: 'transparent'
-          }}
-          aria-label="Download brochure"
-        >
-          <Download size={20} />
-        </button>
+   
 
         {/* Mobile Menu Toggle */}
         <button
