@@ -216,14 +216,14 @@ export default function HeroBanner() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/image/banner1.png')",
+              backgroundImage: "url('https://images.pexels.com/photos/8675396/pexels-photo-8675396.jpeg')",
               backgroundAttachment: 'fixed'
             }}
           />
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 100%)"
+              background: "linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%)"
             }}
           />
         </div>
